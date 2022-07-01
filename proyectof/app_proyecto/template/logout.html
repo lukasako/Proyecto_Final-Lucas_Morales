@@ -1,0 +1,27 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{%block contenido%}
+    <style>
+        .div-1{
+            padding-top: 100px;
+            text-align: center;
+        }
+        h2{
+            padding-bottom: 20px;
+        }
+        .a-1{
+            padding-top:100px ;
+
+        }
+    </style>
+
+    <div class="div-1">
+
+
+        <h1> Hasta la proxima!</h1>
+        <h4> Te vamos a extrañar </h4>
+
+        <a href="{%url 'Login'%}"> Iniciar nuevamente </a>
+    </div>
+{% endblock %}

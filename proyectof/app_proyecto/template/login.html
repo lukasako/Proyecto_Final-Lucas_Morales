@@ -1,0 +1,57 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+   
+    <style>
+        .div-1{
+            padding-top: 100px;
+            text-align: center;
+        }
+        h2{
+            padding-bottom: 20px;
+        }
+        .a-1{
+            padding-top:100px ;
+
+        }
+        .divlog{
+            padding-top: 100px;
+            text-align: center;
+        }
+    </style>
+
+    {%if not request.user.is_authenticated%}
+    <div class="div-1">
+
+        <h2>Ingresa</h2>
+
+        <p> {{mensaje}}</p>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}        
+            <button type="">Iniciar</button>
+        </form>
+        <p class="a-1" >
+            <a href="http://127.0.0.1:8000/app_proyecto/register" >
+                no tienes una cuenta? Crea una!
+            </a>
+        </p>
+        
+    </div>
+    {%endif%}
+
+    {%if request.user.is_authenticated%}
+    <div class="divlog">
+        <h2> Ya estas logeado!</h2>
+    
+        <a class="leer" href="{% url 'Pages'%}">Ver posts</a>
+        <p></p>
+        <a href="{% url 'Crear_post'%}"> Crear post </a> 
+
+    </div>
+    {%endif%}
+
+{%endblock%}

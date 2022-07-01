@@ -1,0 +1,75 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block contenido %}
+<style> 
+    .p1 { 
+        padding-top: 25px;
+        padding-left: 50px;
+        padding-right: 50px;
+        line-height: 2; 
+        text-align: center ;
+        font-size: 20px;
+        font-weight: bold;
+        
+       
+        }
+        
+    .btn-b{
+        
+        align-items:center;
+        width: 250px;
+        height: 30px;
+        background-image: url(../static/app_proyecto/assets/img/fondo-boton.JPG);
+        font-family: 'Roboto';
+        font-size: 15px;
+        text-decoration: none;
+        color: rgb(214, 214, 214);
+       
+        }
+    .form-b{
+        padding-top: 10px;
+        align-items:center;
+    }
+    .h3{
+        padding-top: 100px;
+    }
+    .im1{
+        padding-top: 100px;
+    }
+    
+    </style>
+        <header class="masthead">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                           
+                            <h1 class="mb-5">Bienvenido a Lgram</h1>
+                            <h5>Un lugar donde contar tus experiencias</h5>
+                            
+                            {%if not request.user.is_authenticated%}
+                            <form class="form-b" action="http://127.0.0.1:8000/app_proyecto/register"><button class="btn-b"> No tienes una cuenta? Crea una </button></form>
+                            {%endif%}
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <h3 class="h3">¿Qué es Lgram y cómo funciona?</h3>
+
+                <p class="p1">Somos una plataforma online en la que se recogen cientos    
+                de opiniones en torno a determinados negocios del sector turístico (hoteles, restaurantes, bares, discotecas, cruceros, etc). El sector del turismo vive más que nunca pendiente del boca a boca digital. Es decir, de las opiniones que vierten sus clientes sobre ellos.
+                En este sentido, Lgram es todo un ejemplo dentro del rubro. 
+            </p>  
+
+                <div class="im1" align='center'>
+                    <img src="../static/app_proyecto/assets/img/experiencia-bar.png" width="500" height="500" alt="Publicacion de Pedro Juarez">
+                    <img src="../static/app_proyecto/assets/img/experiencia-restaurante.png" width='500' height="500" alt="Experiencia de bar">
+                </div>
+        </main>
+
+{% endblock %}

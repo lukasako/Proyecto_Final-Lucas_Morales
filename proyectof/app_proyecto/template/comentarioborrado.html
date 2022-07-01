@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentario Borrado</title>
+</head>
+{%load static%}
+<style>
+    .Divc{
+        text-align: center;
+        margin-top:300px;
+
+    }
+    body{
+        background-color: rgb(236, 206, 170);
+    }
+    .Divd{
+        margin-top: 10px;
+    }
+</style>
+<body>
+    <div class="Divc">
+    <h1> Eliminado exitosamente </h1>
+        <div class="Divd">
+            <button><a href="{% url 'Pages' %}">Ultimas publicaciones</a></button>
+            {%if request.user.is_authenticated%}
+            <button><a href="{% url 'Crear_post' %}">Crear Post</a></button>
+            {%endif%}
+
+            {%if request.user.is_authenticated%}
+            
+                <button><details class="d2">  
+                <summary > Administrar usuario </summary>
+                    <a  href="{% url 'PanelUsuario' %}">Panel Usuario de {{user.username}}</a><br>
+                    <a  href="{% url 'Logout' %}">Cerrar sesion</a>
+            {%endif%}
+                </details></button>
+        </div>
+    </div>
+</body>
+</html>

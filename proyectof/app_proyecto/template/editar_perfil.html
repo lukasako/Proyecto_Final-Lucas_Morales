@@ -1,0 +1,58 @@
+{%extends "padre.html"%}
+{%load static%}
+{%block contenido%}
+<style>
+    .t-1{
+        padding-top: 12px;
+        padding-left: 400px;
+        text-align: center;
+    }
+    h2{
+        padding-bottom: 20px;
+    }
+    .a-1{
+        padding-top:100px ;
+    }
+    .btn-1{
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    .div-1{
+        padding-top: 150px;
+        text-align: center;
+    }
+
+</style>
+
+    <div class="div-1">
+        
+        <h1>Editar perfil</h1> 
+        <h4>{{usuario}}</h4>
+    
+        <form action="" method="POST">
+            {%csrf_token%} 
+    
+
+    <div class="t-1">
+            
+        <table class="t-1">
+            
+            {{ miFormulario.as_table}}
+
+        </table>
+
+    </div>
+
+    <div class="btn-1">
+        
+        <input type="submit" value="Enviar">
+        
+    </div>
+
+        </form>
+
+
+    
+    </div>
+{% endblock %}

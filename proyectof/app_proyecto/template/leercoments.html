@@ -1,0 +1,173 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+<style>
+        body{
+            background-image: url(../static/app_proyecto/assets/img/5437982.jpg);
+            
+        }
+        .div1{
+            text-align: center;
+            border: 5px orange inset;
+            background-color: aliceblue;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin-left: 200px;
+            margin-right: 200px;
+            
+            
+        
+            
+
+        }
+        
+        .titulo1{
+            letter-spacing: 5px;
+            font-family: 'Times New Roman', Times, cursive;
+            font-style: oblique;
+            font-weight: bold;
+
+        }
+        .subtitulo1{
+            
+            font-style: oblique;
+        }
+        .cuerpo1{
+   
+            font-size: large;
+        
+            text-align:center;
+           
+        }
+        .imagen1{
+            border-radius: 8px;
+            max-height: 500px;
+            max-width: 800px;
+            
+            
+        }
+        .autor1{
+            text-align: end;
+        }
+
+        .div2{
+            text-align: center;
+            text-decoration: none;
+            text-shadow: none;
+
+        }
+        .p2{
+            text-align:center;
+        }
+        details{
+            text-decoration: None;
+        }
+        summary{
+            color: blue;
+        }
+        .d1{
+            text-align:center;
+        }
+        .aa{
+            text-decoration: None;
+        
+        }
+        .divi{
+            text-align: left;
+            background-color: aliceblue;
+            padding-left: 5px;
+            padding-right: 5px;
+       
+         
+            
+        }
+        .summary2{
+            text-align: center;
+        }
+        .comentario, .autor{
+            font-size: 15px;
+        }
+        .comentar, .comenta{
+            text-align: center;
+            font-size: 20px;
+            text-decoration: none;
+            font-style: none;
+            color: rgb(93, 44, 189);
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .NP{
+
+            text-align: center;
+            margin-top: 300px;
+            background-color: antiquewhite;
+            margin-left: 200px;
+            margin-right: 200px;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            letter-spacing: 3px;
+            border: 5px orange inset;
+        }
+    </style>
+
+
+    
+   
+
+
+
+
+{% if post%}
+{%else%}
+<p class="NP"> Todavia no hay posts</p>
+{%  endif  %}
+
+{% for p in post %}
+<div class="div1">
+    
+
+    <h1 class="titulo1"> {{p.titulo}} </h1>
+    <h3 class="subtitulo1"> {{p.subtitulo}}</h3>
+
+    {% if p.imagen %}
+    <img src="{{p.imagen.url}}" class="imagen1"   max_he alt="Foto-Post" > 
+    {%endif%}
+    <p class="autor1"> {{p.autor}} </p>
+
+    <details class="d1"> 
+        <summary> Leer Post </summary>
+        <p class="cuerpo1"> {{p.cuerpo}} </p>
+        <p> {{p.fecha}} </p>
+        <p> Post numero {{p.id}}</p>
+    </details>
+    
+
+    <div class="divi">
+        
+            <details class="d2"> 
+                <summary class="summary2"> Comentarios </summary>
+                <p class="comentar"> <a class='comenta' href="{% url 'Comentar' p.id %}"> ⇉ Comentar algo sobre este post ⇇</a> </p>
+                {%for c in comentario%}
+                {% if c.post_id == p.id%}
+                <p class="autor"> {{c.autor}} </p>
+                <hr size="3px" width="150px" color="black" />
+                <pre style='display:inline; white-space:pre;' class="comentario"> {{c.comentario}} </pre>
+                <hr size="8px" color="black" />
+   
+                {% endif %}
+                {%endfor%}
+
+            </details>
+           
+    </div>
+
+
+
+</div>
+
+{%endfor%}
+{%endblock%}
+

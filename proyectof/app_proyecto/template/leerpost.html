@@ -1,0 +1,95 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+<style>
+        body{
+            background-image: url(../static/app_proyecto/assets/img/5437982.jpg);
+            
+        }
+        .div1{
+            text-align: center;
+            border: 5px orange inset;
+            background-color: aliceblue;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin-left: 200px;
+            margin-right: 200px;
+            margin-top: 10px;
+        
+            
+
+        }
+        
+        .titulo1{
+            letter-spacing: 5px;
+            font-family: 'Times New Roman', Times, cursive;
+            font-style: oblique;
+            font-weight: bold;
+
+        }
+        .subtitulo1{
+            
+            font-style: oblique;
+        }
+        .cuerpo1{
+            text-indent: 10px;
+            font-size: large;
+            line-height: 1.5;
+            text-align: left;
+        }
+        .imagen1{
+            border-radius: 8px;
+            
+        }
+        .autor1{
+            text-align: end;
+        }
+
+        .div2{
+            text-align: center;
+            text-decoration: none;
+            text-shadow: none;
+
+        }
+        .p2{
+            text-align:center;
+        }
+    </style>
+
+
+    
+   
+    {% for p in post %}
+
+    
+    <div class="div1">
+
+       
+        <h1 class="titulo1"> {{p.titulo}} </h1>
+        <h3 class="subtitulo1"> {{p.subtitulo}}</h3>
+        
+        <img src="{{p.imagen}}" class="imagen1" width="500" height="500" alt="Foto-Post"> 
+    
+        <p class="cuerpo1"> {{p.cuerpo}} </p>
+        <p class="autor1"> {{p.autor}} </p>
+        <p> {{p.fecha}} </p>
+        <p> {{p.comentario}} </p>
+    
+    
+    {% for c in coments%}
+   
+        <p> {{c.autor}}</p>
+        <p> {{c.comentario}}</p>
+
+    {%endfor%}
+   
+
+   
+
+    
+    </div>
+    {%endfor%}
+
+{% endblock %}

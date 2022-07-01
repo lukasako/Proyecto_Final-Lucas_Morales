@@ -1,0 +1,59 @@
+{%extends "padre.html"%}
+{% load static %}
+{%block contenido%}
+    <style>
+        .div-1{
+            padding-top: 100px;
+       
+  
+        }
+        h2{
+            padding-bottom: 20px;
+        }
+        .a-1{
+            padding-top:100px ;
+        }
+        .btn-11{
+            padding-top: 10px;
+      
+       
+        }
+
+        .div-2{
+            list-style:none;
+            margin-left: 200px;
+        }
+
+        .helptext{
+            text-decoration: none;
+            font-family: 'Times New Roman', Times, serif;
+
+        }
+        li{
+
+            list-style: none;
+            text-align:unset;
+            margin-top: 10px;
+        }
+    </style>
+    <form class="div-1" action="" method="POST">
+        {% csrf_token %}
+       
+        {% if mensaje %}
+        <p>{{mensaje}}</p>
+        {% endif %}
+
+
+        <table class="div-2">
+
+        {{ form.as_table  }}
+        
+        </table>
+
+        <div  class="btn-11" >
+
+        <button type="submit">Registrarse</button>
+        
+        </div>
+    </form>
+{%endblock%}

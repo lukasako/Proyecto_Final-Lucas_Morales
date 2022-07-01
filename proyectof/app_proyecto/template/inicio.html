@@ -1,0 +1,17 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+    <div class="div-1">
+
+        <h1> Bienvenido!</h1>
+        <a href="{%url 'Logout'%}"> Cerrar sesion </a>
+        <p> </p>
+        <a href="http://127.0.0.1:8000/app_proyecto/crear_post"> Crear post </a>    
+    
+    </div>
+
+</body>
+</html>
+{% endblock %}
